@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Happy Birthday</title>
+
+<style>
+
+body{
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#ffd6e8,#ffeaa7);
+font-family:Arial;
+overflow:hidden;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+z-index:2;
+}
+
+h1{
+color:#ff4081;
+font-size:45px;
+}
+
+p{
+font-size:22px;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday ❤️</h1>
+
+<p>
+
+To the love of my life,<br><br>
+
+Thank you for making every day beautiful.<br>
+
+You are my happiness, my strength,<br>
+
+and my forever. ❤️<br><br>
+
+I Love You So Much ❤️
+
+</p>
+
+</div>
+
+<script>
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
