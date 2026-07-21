@@ -157,6 +157,13 @@ opacity:0;
 
 
 <body>
+<!-- Hidden Background Music -->
+
+<audio id="bgMusic" autoplay loop hidden>
+
+    <source src="devon.mp3" type="audio/mpeg">
+
+</audio>
 
 
 <div class="card">
@@ -165,17 +172,8 @@ opacity:0;
 <img id="slide" src="oonjal.jpg" alt="Slideshow">
 
 
-<!-- Romantic Background Music -->
 
-<audio id="bgMusic" loop preload="auto">
-
-    <source src="devon.mp3" type="audio/mpeg">
-
-</audio>
-
-
-
-<a href="devan.html" class="btn" onclick="playMusic(event)">
+<a href="devan.html" class="btn">
 
 💌 എന്റെ ദേവന് ഒരു ചെറിയ സ്നേഹസമ്മാനം ❤️
 
@@ -187,44 +185,6 @@ opacity:0;
 
 
 <script>
-
-
-/* Start Music Before Opening Next Page */
-
-function playMusic(event){
-
-    event.preventDefault();
-
-
-    const music = document.getElementById("bgMusic");
-
-
-    music.volume = 0.8;
-
-
-    music.play()
-    .then(()=>{
-
-
-        setTimeout(()=>{
-
-            window.location.href="devan.html";
-
-        },1500);
-
-
-    })
-    .catch(()=>{
-
-
-        window.location.href="devan.html";
-
-
-    });
-
-
-}
-
 
 
 /* Slideshow Images */
@@ -251,6 +211,7 @@ const images=[
 
 "IMG_7600.jpeg"
 
+
 ];
 
 
@@ -271,6 +232,7 @@ setInterval(()=>{
 slide.style.opacity=0;
 
 
+
 setTimeout(()=>{
 
 
@@ -283,7 +245,9 @@ slide.src=images[current];
 slide.style.opacity=1;
 
 
+
 },500);
+
 
 
 },3000);
@@ -324,7 +288,9 @@ setTimeout(()=>{
 heart.remove();
 
 
+
 },7000);
+
 
 
 }
@@ -333,7 +299,32 @@ heart.remove();
 
 setInterval(createHeart,400);
 
+/* Background Music */
 
+
+const music=document.getElementById("bgMusic");
+
+
+window.addEventListener("load",()=>{
+
+
+    const playPromise=music.play();
+
+
+    if(playPromise!==undefined){
+
+
+        playPromise.catch(()=>{
+
+            console.log("Autoplay blocked by browser.");
+
+        });
+
+
+    }
+
+
+});
 
 </script>
 
