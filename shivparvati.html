@@ -166,8 +166,17 @@ opacity:0;
 <img id="slide" src="oonjal.jpg" alt="Slideshow">
 
 
+<!-- Background Music -->
 
-<a href="devan.html" class="btn">
+<audio id="bgMusic" loop>
+
+    <source src="devon.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<a href="devan.html" class="btn" onclick="playMusic()">
 
 💌 എന്റെ ദേവന് ഒരു ചെറിയ സ്നേഹസമ്മാനം ❤️
 
@@ -179,6 +188,18 @@ opacity:0;
 
 
 <script>
+
+
+/* Play Music */
+
+function playMusic(){
+
+    const music = document.getElementById("bgMusic");
+
+    music.play();
+
+}
+
 
 
 /* Slideshow Images */
