@@ -159,16 +159,15 @@ opacity:0;
 <body>
 
 
-
 <div class="card">
 
 
 <img id="slide" src="oonjal.jpg" alt="Slideshow">
 
 
-<!-- Background Music -->
+<!-- Romantic Background Music -->
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop preload="auto">
 
     <source src="devon.mp3" type="audio/mpeg">
 
@@ -176,7 +175,7 @@ opacity:0;
 
 
 
-<a href="devan.html" class="btn" onclick="playMusic()">
+<a href="devan.html" class="btn" onclick="playMusic(event)">
 
 💌 എന്റെ ദേവന് ഒരു ചെറിയ സ്നേഹസമ്മാനം ❤️
 
@@ -190,13 +189,39 @@ opacity:0;
 <script>
 
 
-/* Play Music */
+/* Start Music Before Opening Next Page */
 
-function playMusic(){
+function playMusic(event){
+
+    event.preventDefault();
+
 
     const music = document.getElementById("bgMusic");
 
-    music.play();
+
+    music.volume = 0.8;
+
+
+    music.play()
+    .then(()=>{
+
+
+        setTimeout(()=>{
+
+            window.location.href="devan.html";
+
+        },1500);
+
+
+    })
+    .catch(()=>{
+
+
+        window.location.href="devan.html";
+
+
+    });
+
 
 }
 
@@ -246,7 +271,6 @@ setInterval(()=>{
 slide.style.opacity=0;
 
 
-
 setTimeout(()=>{
 
 
@@ -259,9 +283,7 @@ slide.src=images[current];
 slide.style.opacity=1;
 
 
-
 },500);
-
 
 
 },3000);
@@ -302,9 +324,7 @@ setTimeout(()=>{
 heart.remove();
 
 
-
 },7000);
-
 
 
 }
